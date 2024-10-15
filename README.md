@@ -16,7 +16,7 @@
     cd cdp_personalization_engine
     ```
 
-2. **Install dependencies**:
+2. **Deploy Qdrant and Uvicorn**:
 
     Run docker compose
 

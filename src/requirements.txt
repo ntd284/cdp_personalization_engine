@@ -10,7 +10,7 @@ python-dotenv
 # sqlalchemy
 # cityhash
 # fastembed
-# redis
+redis
 # rq
 # rq-dashboard
 # pyarango
