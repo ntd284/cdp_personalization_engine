@@ -1,27 +1,27 @@
 fastapi
-jinja2
-python-multipart
+# jinja2
+# python-multipart
 uvicorn
 asyncio
-pytest
+# pytest
 requests
 python-dotenv
 
-sqlalchemy
-cityhash
-fastembed
-redis
-rq
-rq-dashboard
-pyarango
+# sqlalchemy
+# cityhash
+# fastembed
+# redis
+# rq
+# rq-dashboard
+# pyarango
 
 numpy
 pandas
 
-Faker
-markdown
+# Faker
+# markdown
 
-google-generativeai
+# google-generativeai
 
 transformers
 ctransformers[cuda]

@@ -18,7 +18,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./src:/app  # Mount your local folder to /app in the container
+      - ./src:/src # Mount your local folder to /src in the container
     networks:
       - qdrant_network
     depends_on:

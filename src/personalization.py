@@ -8,7 +8,7 @@ import hashlib
 
 
 # Initialize Qdrant client (Assuming Qdrant is running locally)
-qdrant_client = QdrantClient(host="localhost", port=6333)
+qdrant_client = QdrantClient(host="qdrant_container", port=6333)
 
 # Create collections for profile and product in Qdrant
 PROFILE_COLLECTION = "cdp_profile"
