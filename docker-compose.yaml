@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant_container
+    ports:
+      - "6333:6333"
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - qdrant_network
+
+  uvicorn_app:
+    build: .
+    container_name: uvicorn_container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app  # Mount your local folder to /app in the container
+    networks:
+      - qdrant_network
+    depends_on:
+      - qdrant
+
+volumes:
+  qdrant_data:
+
+networks:
+  qdrant_network:
+    driver: bridge
