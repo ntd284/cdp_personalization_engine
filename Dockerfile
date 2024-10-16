@@ -8,11 +8,9 @@ RUN pip3 install --upgrade pip && \
     pip3 install uvicorn fastapi
 
 WORKDIR /src
-
-COPY ./src /src
-
+COPY src/requirements.txt /src/requirements.txt
 RUN pip3 install -r /src/requirements.txt || true
 
 EXPOSE 8000
 
-CMD ["python3", "/src/api_start.py"]
+CMD ["python3", "api_start.py"]

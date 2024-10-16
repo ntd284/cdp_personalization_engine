@@ -6,9 +6,18 @@ from qdrant_client.http.models import VectorParams, Distance, FieldCondition
 from sentence_transformers import SentenceTransformer
 import hashlib
 
+from dotenv import load_dotenv
+import os
 
-# Initialize Qdrant client (Assuming Qdrant is running locally)
-qdrant_client = QdrantClient(host="qdrant_container", port=6333)
+# Load environment variables from the .env file
+load_dotenv(override=True)
+
+# Fetch the host and port from environment variables
+QDRANT_HOST = os.getenv('QDRANT_HOST', 'qdrant')  # default is 'localhost'
+QDRANT_PORT = int(os.getenv('QDRANT_PORT', 6333))  # default is 6333
+
+# Initialize QdrantClient with the loaded values
+qdrant_client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
 
 # Create collections for profile and product in Qdrant
 PROFILE_COLLECTION = "cdp_profile"
@@ -207,4 +216,3 @@ def recommend_products_for_profile(profile_id, top_n=8, except_product_ids=[]):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return []
-
